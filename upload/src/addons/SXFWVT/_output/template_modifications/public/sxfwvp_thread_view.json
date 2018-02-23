@@ -1,0 +1,9 @@
+{
+    "template": "thread_view",
+    "description": "",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<div class=\"blockMessage blockMessage--none\">\n\t<xf:macro template=\"share_page_macros\" name=\"buttons\" arg-iconic=\"{{ true }}\" arg-label=\"{{ phrase('share:') }}\" />\n</div>",
+    "replace": "<br />\n<xf:include template=\"sxfwvt_who_view_topic_block\" />\n$0"
+}

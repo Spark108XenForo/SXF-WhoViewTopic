@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="public" title="sxfwvt_who_view_topic_block" version_id="1000070" version_string="1.0.0"><![CDATA[<div class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="block-row">
+				<b>{{ phrase('sxfwvt_currently_viewing:') }}</b>
+				<xf:if is="$activityes is not empty">
+					<xf:foreach loop="$activityes" key="$key" value="$user">
+						<xf:username user="{$user}" />{{ count($activityes) - 1 != $key ? ', ' : '' }}
+					</xf:foreach>
+				<xf:else />
+					{{ phrase('sxfwvt_none_view') }}
+				</xf:if>
+			</div>
+		</div>
+	</div>
+</div>]]></template>
+</templates>

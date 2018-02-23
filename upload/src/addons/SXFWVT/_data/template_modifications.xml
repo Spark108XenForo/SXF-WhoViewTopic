@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="thread_view" modification_key="sxfwvp_thread_view" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<div class="blockMessage blockMessage--none">
+	<xf:macro template="share_page_macros" name="buttons" arg-iconic="{{ true }}" arg-label="{{ phrase('share:') }}" />
+</div>]]></find>
+    <replace><![CDATA[<br />
+<xf:include template="sxfwvt_who_view_topic_block" />
+$0]]></replace>
+  </modification>
+</template_modifications>
