@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<language title="Russian (RU)" date_format="j M Y" time_format="H:i" currency_format="&quot;{value}&quot;{symbol}" week_start="1" decimal_point="." thousands_separator="," label_separator=":" comma_separator=", " ellipsis="..." parenthesis_open="(" parenthesis_close=")" language_code="ru-RU" text_direction="LTR" addon_id="SXFWVT" export_version="2"/>
+<language title="Russian (RU)" date_format="j M Y" time_format="H:i" currency_format="&quot;{value}&quot;{symbol}" week_start="1" decimal_point="." thousands_separator="," label_separator=":" comma_separator=", " ellipsis="..." parenthesis_open="(" parenthesis_close=")" language_code="ru-RU" text_direction="LTR" addon_id="SXFWVT" export_version="2">
+  <phrase title="sxfwvt_currently_viewing" addon_id="SXFWVT" version_id="1000070" version_string="1.0.0"><![CDATA[Сейчас просматривают]]></phrase>
+  <phrase title="sxfwvt_none_view" addon_id="SXFWVT" version_id="1000070" version_string="1.0.0"><![CDATA[Никто не смотрит!]]></phrase>
+</language>
