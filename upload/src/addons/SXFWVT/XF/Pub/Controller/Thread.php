@@ -12,36 +12,32 @@ class Thread extends XFCP_Thread
 	{
 		$action = parent::actionIndex($params);
 		
-		$activityes = \XF::finder('XF:SessionActivity')->where([
-			'view_state' => 'valid',
-			'controller_name' => 'XF\Pub\Controller\Thread'
-		])->fetch()->toArray();
-		
 		$visitor = \XF::visitor();
 		
-		$threadId = $params->thread_id;
-		$userId = $visitor->user_id;
+		$activityes = \XF::finder('XF:SessionActivity')->where([
+			'view_state' => 'valid',
+			'controller_name' => 'XF\Pub\Controller\Thread',
+			['user_id', '!=', $visitor->user_id],
+			['user_id', '!=', 0]
+		])->fetch()->toArray();
 		
-		$activityes = array_map(function($activity) use ($threadId, $userId)
+		$activityUsers = [];
+		
+		foreach ($activityes as $activity)
 		{
-			$user = $activity->User;
-			
-			if ($threadId == $activity->params['thread_id'] && $user->user_id != $userId)
+			if ($params->thread_id == $activity->params['thread_id'])
 			{
-				return $user;
+				$activityUsers[] = $activity->User;
 			}
-		}, $activityes);
-		
-		$activityes = array_diff($activityes, ['']);
-		$activityes = array_values($activityes);
+		}
 		
 		if ($visitor->user_id)
 		{
-			$activityes[] = $visitor;
+			$activityUsers = array_merge([$visitor], $activityUsers);
 		}
 		
 		$action->setParams([
-			'activityes' => $activityes
+			'activityUsers' => $activityUsers
 		]);
 		
 		return $action;

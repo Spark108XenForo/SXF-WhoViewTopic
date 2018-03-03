@@ -3,9 +3,9 @@
 		<div class="block-body">
 			<div class="block-row">
 				<b>{{ phrase('sxfwvt_currently_viewing:') }}</b>
-				<xf:if is="$activityes is not empty">
-					<xf:foreach loop="$activityes" key="$key" value="$user">
-						<xf:username user="{$user}" />{{ count($activityes) - 1 != $key ? ', ' : '' }}
+				<xf:if is="$activityUsers is not empty">
+					<xf:foreach loop="$activityUsers" key="$key" value="$user">
+						<xf:username user="{$user}" />{{ count($activityUsers) - 1 != $key ? ', ' : '' }}
 					</xf:foreach>
 				<xf:else />
 					{{ phrase('sxfwvt_none_view') }}
